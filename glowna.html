@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    
+    .container {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 105px 300px 532px 250px 350px 350px 350px 170px;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "menu"
+            "logo"
+            "baner"
+            "tekst"
+            "paraimg"
+            "divyhv"
+            "sektekst"
+            "newsletter"
+            "kolarz"
+            "stopka";
+    }
+
+    .menu {
+        grid-area: menu;
+    }
+
+    .logo {
+        grid-area: logo;
+    }
+
+    .baner {
+        grid-area: baner;
+    }
+
+    .tekst {
+        grid-area: tekst;
+    }
+    .paraimg {
+        grid-area: paraimg;
+    }
+    .divyhv {
+        grid-area: divyhv;
+    }
+    .sektekst {
+        grid-area: sektekst;
+    }
+    .newsletter {
+        grid-area: newsletter;
+    }
+    .kolarz {
+        grid-area: kolarz;
+    }
+
+    .container1 {
+        display: grid;
+        grid-template-columns: 20% 20% 20%;
+        grid-template-rows: 1fr;
+        gap: 0px 30px;
+        grid-template-areas:
+            "div1 div2 div3";
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+
+/*3 prostokaty*/
+
+    }
+    .div1 {
+        grid-area: div1;
+        background-color: rgb(37, 37, 35);
+        height: 50%;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .div2 {
+        grid-area: div2;
+        background-color: rgb(189, 70, 70);
+        height: 50%;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .div3 {
+        grid-area: div3;
+        background-color: rgb(202, 202, 200);
+        height: 50%;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .div1:hover {
+        box-shadow: inset 0px 0px 0px 10px rgb(78, 78, 74);
+        background-color: rgb(87, 82, 82);
+    }
+    .div2:hover {
+        box-shadow: inset 0px 0px 0px 10px rgb(221, 70, 70);
+        background-color: rgb(235, 104, 104);
+    }
+    .div3:hover {
+    box-shadow:inset 0px 0px 0px 10px rgb(139, 139, 138);
+    background-color: rgb(172, 172, 172);
+    }
+
+    .kolarz {
+        display: grid;
+        grid-template-columns: 30% 33% 33%;
+        grid-template-rows: 30% 30% 30%;
+        grid-auto-columns: 1fr;
+        gap: 15px 15px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "menuboczne slider1 slider1"
+            "menuboczne blog1 blog2"
+            "menuboczne blog3 blog4";
+        height: 800px;
+    }
+
+.slider1 { grid-area: slider1; }
+
+.blog1 { grid-area: blog1; }
+
+.blog2 { grid-area: blog2; }
+
+.blog3 { grid-area: blog3; }
+
+.blog4 { grid-area: blog4; }
+
+.menuboczne { grid-area: menuboczne; 
+}
+
+
+/* START CSS */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; 
+        font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+        --clr: #c42929;
+    }
+
+    body {
+        background: #28292d;
+        overflow-x: hidden;
+    }
+    /* Pasek Nawigacji */
+    .navbarfixed {
+        padding-top: 35px;
+        background: var(--clr);
+        width: 100%;
+        height: 105px;
+        position: fixed;
+        z-index: 10;
+        box-shadow: 0px 10px 6px 0px rgb(37, 37, 35);
+    }
+    .navigation {
+        position: relative;
+        width: 100%;
+        height: 70px;
+        background: rgb(37, 37, 35);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 45px;
+    }
+
+        .navigation ul {
+            display: flex;
+            width: 350px;
+        }
+
+            .navigation ul li {
+                position: relative;
+                list-style: none;
+                width: 70px;
+                height: 70px;
+                z-index: 1;
+            }
+
+                .navigation ul li a {
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    width: 100%;
+                    text-align: center;
+                    font-weight: 500;
+                }
+
+                    .navigation ul li a .icon {
+                        position: relative;
+                        display: block;
+                        line-height: 75px;
+                        font-size: 1.5em;
+                        text-align: center;
+                        transition: 0.5s;
+                        color: black;
+                    }
+
+                .navigation ul li.active a .icon {
+                    transform: translateY(-32px);
+                }
+
+                .navigation ul li a .text {
+                    position: absolute;
+                    color: var(--clr);
+                    font-weight: 400;
+                    font-size: 0.75em;
+                    letter-spacing: 0.05em;
+                    transition: 0.5s;
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                .navigation ul li.active a .text {
+                    opacity: 1;
+                    transform: translateY(10px);
+                }
+
+    .indicator {
+        position: absolute;
+        top: -50%;
+        width: 70px;
+        height: 70px;
+        background: rgb(37, 37, 35);
+        border-radius: 50%;
+        border: 6px solid var(--clr);
+        transition: 0.5s;
+    }
+
+        .indicator::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -22px;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border-top-right-radius: 20px;
+            box-shadow: 1px -10px 0 0 var(--clr);
+        }
+
+        .indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -22px;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border-top-left-radius: 20px;
+            box-shadow: -1px -10px 0 0 var(--clr);
+        }
+
+    .navigation ul li:nth-child(1).active ~ .indicator {
+        transform: translateX(calc(70px * 0));
+    }
+
+    .navigation ul li:nth-child(2).active ~ .indicator {
+        transform: translateX(calc(70px * 1));
+    }
+
+    .navigation ul li:nth-child(3).active ~ .indicator {
+        transform: translateX(calc(70px * 2));
+    }
+
+    .navigation ul li:nth-child(4).active ~ .indicator {
+        transform: translateX(calc(70px * 3));
+    }
+
+    .navigation ul li:nth-child(5).active ~ .indicator {
+        transform: translateX(calc(70px * 4));
+    }
+
+    
+    /* LOGO */
+    .logo {
+        position: absolute;
+        top: 105px;
+        height: 300px;
+        width: 100%;
+        background: rgb(37, 37, 35);
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        box-shadow: 10px 10px 6px 0px rgb(0, 0, 0);
+    }
+        .logo img {
+            height: 200px;
+            width: 600px;
+            pointer-events: none;
+            user-select: none;
+            box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+        }
+    /* BANER */
+    .baner {
+        position: absolute;
+        top: 405px;
+        border-bottom: 200px;
+        width:  100%;
+        height: 530px;
+        background-image: url(bomba.jpg);
+        background-size: cover;
+        box-shadow: 0px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .Guzik_galeria {
+        position: absolute;
+        left: calc(50% - 125px);
+        top: 400px;
+        font-size: 18px;
+        font-family: Verdana;
+        width: 250px;
+        height: 75px;
+        border-width: 1px;
+        color: #fff;
+        border-color: rgba(180, 0, 0, 0);
+        font-weight: bold;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+        text-shadow: 1px 1px 0px #2f6627;
+        background: rgb(27, 27, 27);
+        text-decoration: none;
+        text-align: center;
+        justify-content: center;
+        z-index: 5;
+        transition: 0.5s;
+    }
+
+        .Guzik_galeria:hover {
+            background-color: #990909;
+        }
+        /* NAGŁÓWEK */
+       .tekst{
+           width: 100%;
+           height: 250px;
+           background: rgb(27, 27, 27);
+
+       }
+       /* PARAIMG */
+       .paraimg {
+        background-image: url(banerinio.jpg);
+        height: 100%; 
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+       }
+       /* SEKCJA TEKSTOWA*/
+    .sektekst {
+        width: 100%;
+        background: rgb(27, 27, 27);
+    }
+       /* NEWSLETTER*/
+    .newsletter {
+        background: rgb(27, 27, 27);
+        justify-content: center;
+        align-items: center;
+        padding: 0 5% 0 5%;
+        box-shadow: 0px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .container2 {
+      padding: 20px;
+    }
+    .newsletter input[type=text], input[type=submit] {
+        width: 30%;
+        padding: 12px;
+        margin: 8px 0;
+        display: inline-block;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .newsletter input[type=checkbox] {
+      margin-top: 16px;
+    }
+    .newsletter input[type=submit] {
+        background-color: #c43939;
+        color: white;
+        border: none;
+        margin-left: 8%;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+        .newsletter input[type=submit]:hover {
+            background-color: #d12b2b;
+        }
+    .kolarz {
+        height: 1000px;
+        width: 100%;
+        padding-top: 55px;
+        margin-left: 15px;
+    }
+
+        .stopka {
+            height: 200px;
+        }
+    .stopka ul {
+
+        height: 200px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: rgb(192, 38, 38);
+    }
+
+    .stopka li {
+        float: left;
+    }
+
+    .stopka li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .stopka li a:hover {
+        background-color: rgb(177, 30, 30);
+    }
+    .slider1 {
+        background: white;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .blog1 {
+        background: url(https://i0.wp.com/www.sonicperspectives.com/wp-content/uploads/2020/01/lorna-shore-featured.jpg);
+        background-size: cover;
+        background-position-y: center;
+        justify-content: center;
+        display: flex;
+        align-items: flex-end;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .blog2 {
+        background: url(https://imgs.search.brave.com/NHmFhjdWCOBYDc1Ua1vMh_cvbLd5YbH8lkITW5_TxvQ/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9jZG4t/YXNpYS51bml0ZWFz/aWEub3JnL3VwbG9h/ZHMvMjAyMC8xMS9m/ZWUwNDkzMy1pbmh1/bWFuLXJlc3VycmVj/dGlvbi5qcGc);
+        background-size: cover;
+        background-position-y: center;
+        justify-content: center;
+        display: flex;
+        align-items: flex-end;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .blog3 {
+        background: url(https://imgs.search.brave.com/M4CklNit29A-Sd0jmohDm1eh6Y2wSR7Hb7ax7TdbJyA/rs:fit:1200:1152:1/g:ce/aHR0cHM6Ly9jZG4t/YXNpYS51bml0ZWFz/aWEub3JnL3VwbG9h/ZHMvMjAyMS8wMy80/ZmUwOGFhZS11bm5h/bWVkLTQtMjA0OHgx/MTUyLmpwZw);
+        background-size: cover;
+        background-position-y: center;
+        justify-content: center;
+        display: flex;
+        align-items: flex-end;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .blog4 {
+        background: url(https://imgs.search.brave.com/YpEaH2RL0MsDaU8Wfb63aEhnBAH5tBXuQaNyVnVjA1U/rs:fit:1200:1071:1/g:ce/aHR0cHM6Ly80LmJw/LmJsb2dzcG90LmNv/bS8tUi1ycW5ySzBo/emsvVG55S0Y0T0kx/M0kvQUFBQUFBQUFC/UzAvdDJFREMwaVVG/ZHcvczE2MDAvQnJp/bmdfTWVfVGhlX0hv/cml6b25fSERfUGVy/Zm9ybWFuY2VfVGF0/dG9vX011c2ljX0Nv/bmNlcl9XYWxscGFw/ZXJzX1Z2YWxscGFw/ZXIubmV0LmpwZw);
+        background-size: cover;
+        background-position-y: center;
+        justify-content: center;
+        display: flex;
+        align-items: flex-end;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .menuboczne{
+        overflow: hidden;
+    }
+    .menuboczne ul {
+        position: relative;
+        left: 40px;
+        top: 10%;
+        transform: skewY(-15deg);
+    }
+
+    .menuboczne ul li {
+        position: relative;
+        list-style: none;
+        width: 80%;
+        background: #0e0909;
+        padding: 8.2%;
+        z-index: var(--i);
+        transition: 0.5s;
+    }
+
+    .menuboczne ul li:hover {
+        background: #bb3a3a;
+        transform: translateX(50px);
+    }
+
+    .menuboczne ul li::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -40px;
+        width: 40px;
+        height: 100%;
+        background: #0e0909;
+        transform-origin: right;
+        transform: skewY(45deg);
+        transition: 0.5s;
+    }
+
+    .menuboczne ul li:hover::before {
+        background: #bb3a3a;
+    }
+
+    .menuboczne ul li::after {
+        content: '';
+        position: absolute;
+        top: -40px;
+        left: 0px;
+        width: 100%;
+        height: 40px;
+        background: #0e0909;
+        transform-origin: bottom;
+        transform: skewX(45deg);
+        transition: 0.5s;
+    }
+
+    .menuboczne ul li:hover::after {
+        background: #bb3a3a;
+    }
+
+    .menuboczne ul li a {
+        text-decoration: none;
+        color: #ffffff;
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: 0.5s;
+    }
+
+    .menuboczne ul li:hover a {
+        color: #fff;
+    }
+
+    .menuboczne ul li:last-child::after {
+        box-shadow: -120px 120px 20px rgba(0,0,0,0.25);
+    }
+    .slider1{
+        overflow: hidden;
+    }
+    .slider-container {
+        display: flex;
+        align-items: center;
+
+        height: 100%;
+    }
+
+    .slider {
+        width: 100%;
+        max-width: 100%;
+        height: 400px;
+        text-align: center;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .slides {
+        display: flex;
+        overflow-x: scroll;
+        position: relative;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+    }
+
+    .slide:nth-of-type(even) {
+        background-color: rgb(250, 246, 212);
+    }
+
+    .slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        width: 100%;
+        height: 400px;
+        scroll-snap-align: center;
+        margin-right: 0px;
+        box-sizing: border-box;
+        background: white;
+        transform-origin: center center;
+        transform: scale(1);
+    }
+
+    .slide__text {
+        font-size: 40px;
+        font-weight: bold;
+        font-family: sans-serif;
+    }
+
+    .slide a {
+        background: none;
+        border: none;
+    }
+
+    a.slide__prev,
+    .slider::before {
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        left: 5%;
+    }
+
+    a.slide__next,
+    .slider::after {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        right: 5%;
+    }
+
+    .slider::before,
+    .slider::after,
+    .slide__prev,
+    .slide__next {
+        position: absolute;
+        top: 48%;
+        width: 35px;
+        height: 35px;
+        border: double white 10px;
+        border-width: 0 4px 4px 0;
+        padding: 3px;
+        box-sizing: border-box;
+    }
+
+    .slider::before,
+    .slider::after {
+        content: "";
+        z-index: 1;
+        background: none;
+        pointer-events: none;
+    }
+
+    .slider__nav {
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        width: 200px;
+        margin-left: -100px;
+        text-align: center;
+    }
+
+    .slider__navlink {
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: black;
+        margin: 0 10px 0 10px;
+    }
+    #slides__1{
+        background-image: url(https://distortedsoundmag.com/wp-content/uploads/2017/03/cropped-SAB_Anthrax-0296_Edit.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #slides__2{
+        background-image: url(https://summainferno.com/wp-content/uploads/2020/09/Rammstein-PaulHarries.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #slides__3{
+        background-image: url(https://www.decibelmagazine.com/wp-content/uploads/2017/12/Immolation1-820x553.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #slides__4{
+        background-image: url(https://headbangersla.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2021/03/Kreator-Band-Featured.jpg.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .backdropbaner{
+        height: 100%;
+        width: 100%;
+        transition: 0.5s;
+    }
+    
+    .Guzik_galeria:hover + .backdropbaner{
+        backdrop-filter: blur(5px);
+    }
+    .pasekblog{
+        width: 100%;
+        height: 40%;
+        background: black;
+        opacity: 0.5;
+        transition: 0.5s;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+    }
+    .blurblog {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        transition: 0.5s;
+    }
+    .blog1:hover .blurblog{
+        backdrop-filter: blur(5px);
+    }
+        .blog1:hover .blurblog .pasekblog{
+        opacity: 0.7;
+        }
+    .blog2:hover .blurblog {
+        backdrop-filter: blur(5px);
+    }
+
+        .blog2:hover .blurblog .pasekblog {
+            opacity: 0.7;
+        }
+    .blog3:hover .blurblog {
+        backdrop-filter: blur(5px);
+    }
+
+        .blog3:hover .blurblog .pasekblog {
+            opacity: 0.7;
+        }
+    .blog4:hover .blurblog {
+        backdrop-filter: blur(5px);
+    }
+
+        .blog4:hover .blurblog .pasekblog {
+            opacity: 0.7;
+        }
+</style>
+<head>
+    <meta charset="utf-8">
+    <title>Leafy Melody</title>
+</head>
+
+<body>
+    <div class="container">
+<!-- Nawigacja -->
+        <div class="menu">
+            <div class="navbarfixed">
+                <div class="navigation">
+                    <ul>
+                        <li class="list active">
+                            <a href="glowna.html">
+                                <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                                <span class="text">Home</span>
+                            </a>
+                        </li>
+
+                        <li class="list">
+                            <a href="logowanie.html">
+                                <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                                <span class="text">Profile</span>
+                            </a>
+                        </li>
+
+                        <li class="list">
+                            <a href="formularz.html">
+                                <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                                <span class="text">Message</span>
+                            </a>
+                        </li>
+
+                        <li class="list">
+                            <a href="photos.html">
+                                <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                                <span class="text">Photos</span>
+                            </a>
+                        </li>
+
+                        <li class="list">
+                            <a href="cv.html">
+                                <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                                <span class="text">Settings</span>
+                            </a>
+                        </li>
+                        <div class="indicator"></div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="baner.jpg" />
+        </div>
+        <!-- Baner Zdjęcie -->
+        <div class="baner"><a href="https://open.spotify.com/album/0wLTVfaTKFdYgBgA04WJCi" class="Guzik_galeria">--- Sznur ---<BR> Nowa odsłona albumu<BR>Doom Człowieka</a><div class="backdropbaner"></div></div>
+    <!-- Nagłówek Tekst -->
+    <div class="tekst">
+<BR><BR><BR>
+        <center><h1></p>Powitalna brama do świata metalu - Witaj na stronie naszego klubu z muzyką metalową!</h1>
+       
+<BR>
+            <h3>Serdecznie zapraszamy do odwiedzenia naszej strony i dołączenia do naszego klubu!</h3>
+</center>
+
+
+
+    </div>
+    <!-- Zdjęcie z Paralaxą -->
+    <div class="paraimg">
+
+    </div>
+    <!-- hover divy -->
+    <div class="divyhv"> 
+        <div class="container1">
+            <div class="div1"></div>
+            <div class="div2"></div>
+            <div class="div3"></div>
+          </div>
+    </div>
+    <!-- sekcja tekstowa -->
+    <div class="sektekst">
+<BR>
+        <center>
+          
+            <H2>Nasz klub z muzyką metalową to miejsce, gdzie fani ciężkiego grania z całego świata mogą spotkać się, porozmawiać, poznać nowych ludzi i oczywiście, słuchać muzyki. Nasza strona internetowa jest swoistą wirtualną bramą do naszego klubu, gdzie prezentujemy najnowsze wydarzenia, koncerty i nowości związane z metalową sceną.</H2><BR>
+
+            <H3>     Jako klub, staramy się dostarczać naszym członkom i sympatykom jak najlepsze doświadczenia muzyczne. Organizujemy koncerty lokalne i międzynarodowe, a także regularne spotkania, na których można poznać innych fanów metalu, wymienić się doświadczeniami i podyskutować o ulubionych zespołach. Nasza strona internetowa służy jako narzędzie do komunikacji między nami a naszymi członkami.</H3><BR>
+            
+            <H4>  Jeśli jesteś fanem metalu, to nasz klub jest miejscem, które powinieneś odwiedzić. Na naszej stronie internetowej znajdziesz wszelkie informacje dotyczące nadchodzących wydarzeń, koncertów, a także recenzje najnowszych albumów i wiele innych. Oferujemy również forum, gdzie można porozmawiać z innymi fanami na różnorodne tematy związane z muzyką metalową.</H4><BR>
+            
+          
+
+
+
+
+
+</center>
+    </div>
+    <!-- newsletter -->
+    <div class="newsletter">
+        <form action="action_page.php">
+            <div class="container2">
+            </div>
+          
+            <div class="container2">
+              <input type="text" placeholder="Imię" name="Imię" required>
+              <input type="text" placeholder="Adres Email" name="Email" required>
+              <input type="submit" value="Zapisz się">
+            </div>
+          </form> 
+    </div>
+     <!-- zdjęcia -->
+    <div class="kolarz">
+        <div class="slider1">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slides">
+                        <div id="slides__1" class="slide">
+                            <span class="slide__text"></span>
+                            <a class="slide__prev" href="#slides__4" title="Next"></a>
+                            <a class="slide__next" href="#slides__2" title="Next"></a>
+                        </div>
+                        <div id="slides__2" class="slide">
+                            <span class="slide__text"></span>
+                            <a class="slide__prev" href="#slides__1" title="Prev"></a>
+                            <a class="slide__next" href="#slides__3" title="Next"></a>
+                        </div>
+                        <div id="slides__3" class="slide">
+                            <span class="slide__text"></span>
+                            <a class="slide__prev" href="#slides__2" title="Prev"></a>
+                            <a class="slide__next" href="#slides__4" title="Next"></a>
+                        </div>
+                        <div id="slides__4" class="slide">
+                            <span class="slide__text"></span>
+                            <a class="slide__prev" href="#slides__3" title="Prev"></a>
+                            <a class="slide__next" href="#slides__1" title="Prev"></a>
+                        </div>
+                    </div>
+                    <div class="slider__nav">
+                        <a class="slider__navlink" href="#slides__1"></a>
+                        <a class="slider__navlink" href="#slides__2"></a>
+                        <a class="slider__navlink" href="#slides__3"></a>
+                        <a class="slider__navlink" href="#slides__4"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blog1">
+           <div class="blurblog"><a href="#" class="pasekblog">Blog</a></div>
+        </div>
+
+        <div class="blog2">
+            <div class="blurblog"><a href="#" class="pasekblog">Blog</a></div>
+        </div>
+
+        <div class="blog3">
+            <div class="blurblog"><a href="#" class="pasekblog">Blog</a></div>
+        </div>
+
+        <div class="blog4">
+            <div class="blurblog"><a href="#" class="pasekblog">Blog</a></div>
+        </div>
+
+        <div class="menuboczne">
+            <ul>
+                <li style="--i:6;"><a href="https://youtu.be/eOVV06WXEyg">CERYFIKOWANA PLAYLISTA HUTA KATOWICE</a></li>
+                <li style="--i:5;"><a href="https://youtu.be/BZNFa-Rw6x0">PIZDA MŁOTEK KOŁOWROTEK</a></li>
+                <li style="--i:4;"><a href="https://youtu.be/XqQSLAmk_e4">SET DO POLONEZA CARO 2001</a></li>
+                <li style="--i:3;"><a href="https://youtu.be/YIQdJUdbe-g"> SROGI BURDEL NA ŚWIĘTA </a></li>
+                <li style="--i:2;"><a href="https://youtu.be/fLJMiGAwWtY">POLONEZ CARO 1.4 16v ROVER</a></li>
+                <li style="--i:1;"><a href="https://youtu.be/LtqiZTSwCSo"> MIX DO ODBIJANIA SPOTA W METINIE</a></li>
+            </ul>
+        </div>
+      </div>
+
+      
+      <!-- stopka -->
+    <div class="stopka">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </div>
+    </div>
+
+
+
+    
+    <script>
+        const list = document.querySelectorAll('.list');
+        function activeLink() {
+            list.forEach(item => item.classList.remove('active'));
+            this.classList.add('active');
+        }
+        list.forEach(item =>
+            item.addEventListener('click', activeLink))
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

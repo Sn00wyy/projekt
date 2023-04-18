@@ -1,0 +1,350 @@
+
+<html>
+    <style>
+  .container {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 105px 300px 532px 250px 350px 350px 350px 170px;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "menu"
+            "logo"
+            "baner"
+            "tekst"
+            "paraimg"
+            "sektekst"
+            "newsletter"
+            "kolarz"
+            "stopka";
+    }
+
+    .menu {
+        grid-area: menu;
+    }
+
+    .logo {
+        grid-area: logo;
+    }
+
+    .baner {
+        grid-area: baner;
+    }
+
+    .tekst {
+        grid-area: tekst;
+    }
+    .paraimg {
+        grid-area: paraimg;
+    }
+
+    .sektekst {
+        grid-area: sektekst;
+    }
+    .newsletter {
+        grid-area: newsletter;
+    }
+    .kolarz {
+        grid-area: kolarz;
+    }
+
+    .container1 {
+        display: grid;
+        grid-template-columns: 20% 20% 20%;
+        grid-template-rows: 1fr;
+        gap: 0px 30px;
+        grid-template-areas:
+            "div1 div2 div3";
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+
+/*prostokaty*/
+
+    }
+    .div1 {
+        grid-area: div1;
+        background-color: rgb(37, 37, 35);
+        height: 50%;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .div2 {
+        grid-area: div2;
+        background-color: rgb(189, 70, 70);
+        height: 50%;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .div3 {
+        grid-area: div3;
+        background-color: rgb(202, 202, 200);
+        height: 50%;
+        box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+    }
+    .div1:hover {
+        box-shadow: inset 0px 0px 0px 10px rgb(78, 78, 74);
+        background-color: rgb(87, 82, 82);
+    }
+    .div2:hover {
+        box-shadow: inset 0px 0px 0px 10px rgb(221, 70, 70);
+        background-color: rgb(235, 104, 104);
+    }
+    .div3:hover {
+    box-shadow:inset 0px 0px 0px 10px rgb(139, 139, 138);
+    background-color: rgb(172, 172, 172);
+    }
+
+    .kolarz {
+        display: grid;
+        grid-template-columns: 30% 33% 33%;
+        grid-template-rows: 30% 30% 30%;
+        grid-auto-columns: 1fr;
+        gap: 15px 15px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "menuboczne slider1 slider1"
+            "menuboczne blog1 blog2"
+            "menuboczne blog3 blog4";
+        height: 800px;
+    }
+
+.slider1 { grid-area: slider1; }
+
+.blog1 { grid-area: blog1; }
+
+.blog2 { grid-area: blog2; }
+
+.blog3 { grid-area: blog3; }
+
+.blog4 { grid-area: blog4; }
+
+.menuboczne { grid-area: menuboczne; 
+}
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; 
+        font-family: 'Poppins', sans-serif;
+    }
+
+    :root {
+        --clr: #c42929;
+    }
+
+    body {
+        background: #28292d;
+        overflow-x: hidden;
+    }
+
+    /* Pasek Nawigacji */
+    
+    .navbarfixed {
+        padding-top: 35px;
+        background: var(--clr);
+        width: 100%;
+        height: 105px;
+        position: fixed;
+        z-index: 10;
+        box-shadow: 0px 10px 6px 0px rgb(37, 37, 35);
+    }
+    .navigation {
+        position: relative;
+        width: 100%;
+        height: 70px;
+        background: rgb(37, 37, 35);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 45px;
+    }
+
+        .navigation ul {
+            display: flex;
+            width: 350px;
+        }
+
+            .navigation ul li {
+                position: relative;
+                list-style: none;
+                width: 70px;
+                height: 70px;
+                z-index: 1;
+            }
+
+                .navigation ul li a {
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    width: 100%;
+                    text-align: center;
+                    font-weight: 500;
+                }
+
+                    .navigation ul li a .icon {
+                        position: relative;
+                        display: block;
+                        line-height: 75px;
+                        font-size: 1.5em;
+                        text-align: center;
+                        transition: 0.5s;
+                        color: black;
+                    }
+
+                .navigation ul li.active a .icon {
+                    transform: translateY(-32px);
+                }
+
+                .navigation ul li a .text {
+                    position: absolute;
+                    color: var(--clr);
+                    font-weight: 400;
+                    font-size: 0.75em;
+                    letter-spacing: 0.05em;
+                    transition: 0.5s;
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                .navigation ul li.active a .text {
+                    opacity: 1;
+                    transform: translateY(10px);
+                }
+
+    .indicator {
+        position: absolute;
+        top: -50%;
+        width: 70px;
+        height: 70px;
+        background: rgb(37, 37, 35);
+        border-radius: 50%;
+        border: 6px solid var(--clr);
+        transition: 0.5s;
+    }
+
+        .indicator::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -22px;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border-top-right-radius: 20px;
+            box-shadow: 1px -10px 0 0 var(--clr);
+        }
+
+        .indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -22px;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border-top-left-radius: 20px;
+            box-shadow: -1px -10px 0 0 var(--clr);
+        }
+
+    .navigation ul li:nth-child(1).active ~ .indicator {
+        transform: translateX(calc(70px * 0));
+    }
+
+    .navigation ul li:nth-child(2).active ~ .indicator {
+        transform: translateX(calc(70px * 1));
+    }
+
+    .navigation ul li:nth-child(3).active ~ .indicator {
+        transform: translateX(calc(70px * 2));
+    }
+
+    .navigation ul li:nth-child(4).active ~ .indicator {
+        transform: translateX(calc(70px * 3));
+    }
+
+    .navigation ul li:nth-child(5).active ~ .indicator {
+        transform: translateX(calc(70px * 4));
+    }
+    .logo {
+        position: absolute;
+        top: 105px;
+        height: 300px;
+        width: 100%;
+        background: rgb(37, 37, 35);
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        box-shadow: 10px 10px 6px 0px rgb(0, 0, 0);
+    }
+        .logo img {
+            height: 200px;
+            width: 600px;
+            pointer-events: none;
+            user-select: none;
+            box-shadow: 10px 10px 6px 0px rgba(0, 0, 0, 1);
+        }
+
+    </style>
+<body>
+<div class="menu">
+    <div class="navbarfixed">
+        <div class="navigation">
+            <ul>
+                <li class="list active">
+                    <a href="glowna.html">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="text">Home</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <a href="logowanie.html">
+                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                        <span class="text">Profile</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <a href="formularz.html">
+                        <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                        <span class="text">Message</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <a href="photos.html">
+                        <span class="icon"><ion-icon name="camera-outline"></ion-icon></span>
+                        <span class="text">Photos</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <a href="cv.html">
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="text">Settings</span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    const list = document.querySelectorAll('.list');
+    function activeLink() {
+        list.forEach(item => item.classList.remove('active'));
+        this.classList.add('active');
+    }
+    list.forEach(item =>
+        item.addEventListener('click', activeLink))
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>
